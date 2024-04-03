@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:practice/Model/ChatModel.dart';
+import 'package:practice/Screens/IndividualPage.dart';
 
 class CustomCard extends StatefulWidget {
-  const CustomCard({super.key});
+  const CustomCard({Key? key, required this.chatModel}) : super(key: key);
+  final ChatModel chatModel;
 
   @override
   State<CustomCard> createState() => _CustomCardState();
@@ -11,10 +14,14 @@ class CustomCard extends StatefulWidget {
 class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return InkWell(
       onTap: () {
-        // Do Nothing~!
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => IndividualPage(chatModel: widget.chatModel),
+          ),
+        );
       },
       child: Column(
         children: [
@@ -23,32 +30,35 @@ class _CustomCardState extends State<CustomCard> {
               radius: 30,
               backgroundColor: Colors.blueGrey,
               child: SvgPicture.asset(
-                "assets/person.svg",
+                (widget.chatModel.isGroup)
+                    ? "assets/group.svg"
+                    : "assets/person.svg",
                 color: Colors.white,
                 height: 28,
                 width: 20,
               ),
             ),
             title: Text(
-              "Gizaw D.",
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              widget.chatModel.name,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
-            subtitle: const Row(
+            subtitle: Row(
               children: [
-                Icon(Icons.done_all),
-                SizedBox(
+                const Icon(Icons.done_all),
+                const SizedBox(
                   width: 3,
                 ),
                 Text(
-                  "Hi My Stack!!",
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
+                  widget.chatModel.currentMessage,
+                  style: const TextStyle(
+                      fontSize: 11, fontWeight: FontWeight.normal),
                 ),
               ],
             ),
-            trailing: const Text("12:36 mp"),
+            trailing: Text(widget.chatModel.time),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 90, right: 25),
+          const Padding(
+            padding: EdgeInsets.only(left: 90, right: 25),
             child: Divider(
               thickness: 1,
             ),
