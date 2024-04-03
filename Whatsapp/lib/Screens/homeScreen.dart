@@ -35,24 +35,24 @@ class _HomeScreenState extends State<HomeScreen>
           }, itemBuilder: (BuildContext context) {
             return [
               PopupMenuItem(
-                child: Text("New Group"),
                 value: "New Group",
+                child: Text("New Group"),
               ),
               PopupMenuItem(
-                child: Text("New Broadcast"),
                 value: "New Broadcast",
+                child: Text("New Broadcast"),
               ),
               PopupMenuItem(
-                child: Text("Whatsap Web"),
                 value: "Whatsap Web",
+                child: Text("Whatsap Web"),
               ),
               PopupMenuItem(
-                child: Text("Starred Messages"),
                 value: "Starred Messages",
+                child: Text("Starred Messages"),
               ),
               PopupMenuItem(
-                child: Text("Settings"),
                 value: "Settings",
+                child: Text("Settings"),
               ),
             ];
           })
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
         bottom: TabBar(
           indicatorColor: Color.fromARGB(255, 1, 125, 156),
           controller: _controller,
-          tabs: [
+          tabs: const [
             Tab(
               icon: Icon(Icons.camera_alt),
             ),
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen>
           ],
         ),
       ),
-      body: TabBarView(controller: _controller, children: [
+      body: TabBarView(controller: _controller, children: const [
         Text("Camera Opened!"),
         ChatPage(),
         Text("Status Opened!"),

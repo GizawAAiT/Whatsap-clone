@@ -19,6 +19,7 @@ class _appState extends State<app> {
       theme: ThemeData(
           fontFamily: "OpenSans",
           primaryColor: Color(0xFF075E54),
+          appBarTheme: AppBarTheme(backgroundColor: Color(0xFF075E54)),
           secondaryHeaderColor: Color(0xFF128C7E)),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
