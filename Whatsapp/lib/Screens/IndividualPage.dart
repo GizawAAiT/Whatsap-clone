@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:emoji_selector/emoji_selector.dart';
 import 'package:flutter/material.dart';
