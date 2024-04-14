@@ -4,13 +4,16 @@ class ChatModel {
   bool isGroup;
   String time;
   String currentMessage;
+  String status;
+  bool selected;
 
-  ChatModel(
-    {
-   required  this.name,
-   this.icon = "",
-   required  this.isGroup,
-   required  this.time,
-   required  this.currentMessage,
+  ChatModel({
+    this.name = '',
+    this.icon = '',
+    this.isGroup = false,
+    this.time = '',
+    this.currentMessage = '',
+    this.status = '',
+    this.selected = false,
   });
 }
